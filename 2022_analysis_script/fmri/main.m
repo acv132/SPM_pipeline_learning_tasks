@@ -42,8 +42,8 @@ contrastOptions.maskThreshold = 0.0500; % threshold for mask
 % enter export of results as array into cell; allowed are
 % pdf, jpg, png, csv, ps, eps, fig, tif, xls;
 % example: {'png', 'csv', 'fig'};
-% conOpt.export = {'png', 'csv'};
-% conOpt.deletePrevious = true; % whether to delete old exports of results
+contrastOptions.export = {'png', 'csv'};
+contrastOptions.deletePrevious = true; % whether to delete old exports of results
 
 % necessary to display results
 if show_PL_Results
