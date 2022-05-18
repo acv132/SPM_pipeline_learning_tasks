@@ -9,7 +9,7 @@ function [project_path,beh_data_path,fmri_data_path, firstlevel_data_path] = imp
 %                             first-level analysis output
 % $Author: A. Vorreuther $Date: 2022/03/28
 
-project_path =  "F:\2022_Project_PrakAnna\_DATA\";
+project_path =  "F:\UniBonnPraktikum2022\_DATA\";
 beh_data_path = fullfile (project_path, 'Behavioural');
 fmri_data_path = fullfile(project_path,'Subjects');
 
