@@ -1,0 +1,5 @@
+# fmri data is not uploaded here
+_DATA/
+
+# MATLAB Windows default autosave extension
+*.asv

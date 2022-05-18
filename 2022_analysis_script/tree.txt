@@ -1,0 +1,15 @@
+2022_analysis_script
+├───behavioral
+│   ├───OLA
+│   └───PL
+├───data
+│   └───ROIs
+├───fmri
+│   ├───OLA
+│   ├───PL
+│   └───preprocessing
+├───results
+│   └───behavioral (+ batch to fmri results)
+└───utils
+    ├───applyhatch_plusC
+    └───spm8_tpm
