@@ -6,6 +6,15 @@
 
 clear;
 
+%% imports
+addpath(".", "..\utils", "OLA", "PL", "preprocessing");
+load("..\results\behavioral\NEUTRAL.mat");
+
+% import your data paths with this function
+[project_path,beh_data_path,fmri_data_path] = importPaths;
+
+subjects = list_vp_names(beh_data_path);
+
 %% configs: PLEASE ADJUST TO YOUR LIKING
 
 do_preprocess = false;
@@ -15,7 +24,7 @@ show_PL_Results = true; % to save images of results; CAUTION: takes a while too
 do_PL_signalChangeROI = false; % to run signal change analysis with marsbar
 
 do_OLA_analysis = false;
-show_OLA_Results = true;
+show_OLA_Results = false;
 do_OLA_E_signalChangeROI = false;
 do_OLA_R_signalChangeROI = false;
 
@@ -39,6 +48,10 @@ contrastOptions.applyContrastAsMask = 1;
 contrastOptions.maskType = 0;
 contrastOptions.maskThreshold = 0.0500; % threshold for mask
 
+% if set to true, you can additionally define an image ('*.nii') as mask 
+% to apply to results of PL and OLA task, respectively;
+useImageMask = true;
+
 % enter export of results as array into cell; allowed are
 % pdf, jpg, png, csv, ps, eps, fig, tif, xls;
 % example: {'png', 'csv', 'fig'};
@@ -52,15 +65,6 @@ end
 if show_OLA_Results
     do_OLA_analysis = true;
 end
-
-%% imports
-addpath(".", "..\utils", "OLA", "PL", "preprocessing");
-load("..\results\behavioral\NEUTRAL.mat");
-
-% import your data paths with this function
-[project_path,beh_data_path,fmri_data_path] = importPaths;
-
-subjects = list_vp_names(beh_data_path);
 
 %% some subjects are excluded
 excluded_subjects = [
@@ -180,6 +184,12 @@ end
 %% results of analyses above saved as graphics
 
 if show_PL_Results
+    if useImageMask
+        [roi_file, roi_name] = getROI(beh_data_path, ...
+            "contrast mask in displayResults", '*.nii');
+        contrastOptions.applyImageAsMask = roi_file;
+    end
+
     contrastOptions.applyContrastAsMask = find(strcmp({SPM_PL.SPM.xCon.name}, ...
         'Main effect of MPH_NIC_PLC')==1);
     displayResults(SPM_PL, 'PL fullfactorial', contrastOptions);
@@ -188,6 +198,11 @@ if show_PL_Results
     displayResults(SPM_ANOVA_PL, 'PL ANOVA', contrastOptions);
 end
 if show_OLA_Results
+    if useImageMask
+        [roi_file, roi_name] = getROI(beh_data_path, ...
+            "contrast mask in displayResults", '*.nii');
+        contrastOptions.applyImageAsMask = roi_file;
+    end
     contrastOptions.applyContrastAsMask = find(strcmp( ...
         {SPM_OLA_E.SPM.xCon.name}, 'Main effect of CORSCE_FALSCE')==1);
     displayResults(SPM_OLA_E, 'OLA_E fullfactorial', contrastOptions);

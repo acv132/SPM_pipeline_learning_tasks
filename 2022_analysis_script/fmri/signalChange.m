@@ -2,22 +2,22 @@ function signalchange = signalChange(subjects, sequence, conds, ...
     beh_data_path, firstlevel_data_path)
 % SIGNALCHANGE Analyse the percentage of signal change during all tasks
 % by means of the marsbar toolbox;
-% signalchange = SIGNALCHANGE (subjects,beh_data_path, ...
+% signalchange = SIGNALCHANGE(subjects,beh_data_path, ...
 % firstlevel_data_path) takes as 
 % 1. argument: a cell of size 1xn number of subjects where each cell 
 %   contains a string or character array with a subject number, e.g. "001";
 % 2. argument: the sequence name of the sequence to be analysed,
 %   e.g. "OLA_R" or "PROCLEARN";
-% 3. argument: a cell containing all names of conditions
-%   that are important for the current analysed sequence, e.g. "{'CORSCE',
-%   'FALSCE'}" for OLA encoding phase;
-% 4. argument: a directory in form of
-%   a string leading to the behavioral data, e.g. "D:\DATA\Subjects";
-% 5. argument: a directory in form of a string indicating
-%   the data folder where the 1st-level analysis output for all subjects
-%   should be saved, e.g. "C:/PL_1stlevel/PATonly";
+% 3. argument: a cell containing all names of conditions that are
+%   important for the current analysed sequence, e.g. 
+%   "{'CORSCE', 'FALSCE'}" for OLA encoding phase;
+% 4. argument: a directory in form of a string leading to the 
+%   behavioral data, e.g. "D:\DATA\Subjects";
+% 5. argument: a directory in form of a string indicating the data folder 
+%   where the 1st-level analysis output for all subjects should be saved, 
+%   e.g. "C:/PL_1stlevel/PATonly";
 % Outputs a cell containing the percentage of signal change for all
-%   subjects
+%   subjects;
 % $Author: A. Kasparbauer, A. Vorreuther $Date: 2022/05/16
 arguments
     subjects (1,:) cell;
@@ -35,7 +35,7 @@ if string(sequence) == "PROCLEARN"
 else
     out_dir = sequence;
 end
-output_dir = fullfile(fileparts(beh_data_path), "results", out_dir+"_ROI");
+output_dir = fullfile(fileparts(beh_data_path), "results", out_dir+"_signalChange");
 mkdir(output_dir);
 
 %% initialise SPM defaults
@@ -44,12 +44,7 @@ spm_jobman('initcfg');
 marsbar('on')
 
 % load in files of regions of interest
-roi_default_path = fullfile(fileparts(fileparts(beh_data_path)), ...
-    "2022_analysis_script\data\ROIs");
-[roi_filename, roi_path] = uigetfile('*.mat',"Select ROI file for " ...
-    + string(sequence), roi_default_path);
-[~, roi_name] = fileparts(roi_filename);
-roi_file = fullfile(roi_path,roi_filename);
+[roi_file, roi_name] = getROI(beh_data_path, sequence, '*.mat');
 
 %% loop over every subject
 for i = 1:numel(subjects)
