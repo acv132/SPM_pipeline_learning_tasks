@@ -15,7 +15,7 @@ show_PL_Results = true; % to save images of results; CAUTION: takes a while too
 do_PL_signalChangeROI = false; % to run signal change analysis with marsbar
 
 do_OLA_analysis = false;
-show_OLA_Results = false;
+show_OLA_Results = true;
 do_OLA_E_signalChangeROI = false;
 do_OLA_R_signalChangeROI = false;
 
@@ -24,8 +24,8 @@ do_OLA_R_signalChangeROI = false;
 % function; if an option is not defined, a default is used in the method
 % you may also redefine certain options for each task individually by
 % inserting a different config in the code below
-contrastOptions.whichCon = Inf; % Inf: all are displayed; 
-                                % 1: only first contrast etc.
+contrastOptions.whichCon = Inf; % Inf: all are displayed;
+% 1: only first contrast etc.
 contrastOptions.threshType = 'FWE'; % type of threshold : FWE , none
 contrastOptions.threshold = 0.0500; % significance threshold
 contrastOptions.extent = 0; % in voxels
@@ -33,8 +33,8 @@ contrastOptions.extent = 0; % in voxels
 % define a contrast as mask to apply to results; 0: no mask, integer number
 % of a contrast to apply this contrast as mask, e.g. 1; to find out, which
 % contrast corresponds to a certain number, load in the SPM file of interest
-% and type SPM.xCon(1).name into the command prompt 
-contrastOptions.applyContrastAsMask = 2;
+% and type SPM.xCon(1).name into the command prompt
+contrastOptions.applyContrastAsMask = 1;
 % maskType: whether the mask should be inclusive (0) or exclusive (1)
 contrastOptions.maskType = 0;
 contrastOptions.maskThreshold = 0.0500; % threshold for mask
@@ -117,7 +117,7 @@ OLA_subjects = PL_subjects;
 if do_preprocess
     tic
     preprocess(PL_subjects, fmri_data_path);
-%     preprocess_PL(PL_subjects, fmri_data_path);
+    %     preprocess_PL(PL_subjects, fmri_data_path);
     disp("PREPROCESSING complete");
     toc
 end
@@ -180,12 +180,22 @@ end
 %% results of analyses above saved as graphics
 
 if show_PL_Results
+    contrastOptions.applyContrastAsMask = find(strcmp({SPM_PL.xCon.name}, ...
+        'Main effect of MPH_NIC_PLC')==1);
     displayResults(SPM_PL, 'PL fullfactorial', contrastOptions);
+    contrastOptions.applyContrastAsMask = find(strcmp( ...
+        {SPM_ANOVA_PL.xCon.name}, 'group difference')==1);
     displayResults(SPM_ANOVA_PL, 'PL ANOVA', contrastOptions);
 end
 if show_OLA_Results
+    contrastOptions.applyContrastAsMask = find(strcmp( ...
+        {SPM_OLA_E.xCon.name}, 'Main effect of CORSCE_FALSCE')==1);
     displayResults(SPM_OLA_E, 'OLA_E fullfactorial', contrastOptions);
+    contrastOptions.applyContrastAsMask = find(strcmp( ...
+        {SPM_OLA_R.xCon.name}, 'Main effect of CORSCR_FALSCR')==1);
     displayResults(SPM_OLA_R, 'OLA_R fullfactorial', contrastOptions);
+    contrastOptions.applyContrastAsMask = find(strcmp( ...
+        {SPM_ANOVA_OLA{1}.xCon.name}, 'group difference')==1);
     displayResults(SPM_ANOVA_OLA{1}, 'OLA_E ANOVA', contrastOptions);
     displayResults(SPM_ANOVA_OLA{2}, 'OLA_R ANOVA', contrastOptions);
 end
