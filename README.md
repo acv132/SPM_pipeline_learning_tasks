@@ -2,7 +2,7 @@
 
 This repository was **initially created on 18-05-2022** for an internship in the [Section of Cognitive Psychology](https://www.psychologie.uni-bonn.de/de-en/about-us/sections/cognitive-psychology?set_language=en) at the Department of Psychology at the University of Bonn from 15-03-2022 to 15-06-2022.
 
-It contains scripts for analysis of behavioral and hemodynamic data of subjects [^2] who performed a **Procedural Learning**[^1] task 
+It contains scripts for analysis of behavioral and hemodynamic data of subjects[^2] who performed a **Procedural Learning**[^1] task 
 and an **Object Location Association**[^3] task.
 
 Scripts were created using
