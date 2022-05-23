@@ -4,4 +4,4 @@ _DATA/
 # MATLAB Windows default autosave extension
 *.asv
 
-auto_commit.bat
+*.bat
