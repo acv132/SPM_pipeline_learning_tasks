@@ -186,7 +186,7 @@ end
 if show_PL_Results
     if useImageMask
         [roi_file, roi_name] = getROI(beh_data_path, ...
-            "contrast mask in displayResults", '*.nii');
+            "contrast mask for PL results", '*.nii');
         contrastOptions.applyImageAsMask = roi_file;
     end
 
@@ -200,7 +200,7 @@ end
 if show_OLA_Results
     if useImageMask
         [roi_file, roi_name] = getROI(beh_data_path, ...
-            "contrast mask in displayResults", '*.nii');
+            "contrast mask for OLA results", '*.nii');
         contrastOptions.applyImageAsMask = roi_file;
     end
     contrastOptions.applyContrastAsMask = find(strcmp( ...
