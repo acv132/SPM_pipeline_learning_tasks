@@ -33,7 +33,7 @@ contrastOptions.extent = 0; % in voxels
 % define a contrast as mask to apply to results; 0: no mask, integer number
 % of a contrast to apply this contrast as mask, e.g. 1; to find out, which
 % contrast corresponds to a certain number, load in the SPM file of interest
-% and type SPM.xCon(1).name into the command prompt
+% and type {yourSPMofinterest}.SPM.xCon(1).name into the command prompt
 contrastOptions.applyContrastAsMask = 1;
 % maskType: whether the mask should be inclusive (0) or exclusive (1)
 contrastOptions.maskType = 0;
@@ -180,22 +180,22 @@ end
 %% results of analyses above saved as graphics
 
 if show_PL_Results
-    contrastOptions.applyContrastAsMask = find(strcmp({SPM_PL.xCon.name}, ...
+    contrastOptions.applyContrastAsMask = find(strcmp({SPM_PL.SPM.xCon.name}, ...
         'Main effect of MPH_NIC_PLC')==1);
     displayResults(SPM_PL, 'PL fullfactorial', contrastOptions);
     contrastOptions.applyContrastAsMask = find(strcmp( ...
-        {SPM_ANOVA_PL.xCon.name}, 'group difference')==1);
+        {SPM_ANOVA_PL.SPM.xCon.name}, 'group difference')==1);
     displayResults(SPM_ANOVA_PL, 'PL ANOVA', contrastOptions);
 end
 if show_OLA_Results
     contrastOptions.applyContrastAsMask = find(strcmp( ...
-        {SPM_OLA_E.xCon.name}, 'Main effect of CORSCE_FALSCE')==1);
+        {SPM_OLA_E.SPM.xCon.name}, 'Main effect of CORSCE_FALSCE')==1);
     displayResults(SPM_OLA_E, 'OLA_E fullfactorial', contrastOptions);
     contrastOptions.applyContrastAsMask = find(strcmp( ...
-        {SPM_OLA_R.xCon.name}, 'Main effect of CORSCR_FALSCR')==1);
+        {SPM_OLA_R.SPM.xCon.name}, 'Main effect of CORSCR_FALSCR')==1);
     displayResults(SPM_OLA_R, 'OLA_R fullfactorial', contrastOptions);
     contrastOptions.applyContrastAsMask = find(strcmp( ...
-        {SPM_ANOVA_OLA{1}.xCon.name}, 'group difference')==1);
+        {SPM_ANOVA_OLA{1}.SPM.xCon.name}, 'group difference')==1);
     displayResults(SPM_ANOVA_OLA{1}, 'OLA_E ANOVA', contrastOptions);
     displayResults(SPM_ANOVA_OLA{2}, 'OLA_R ANOVA', contrastOptions);
 end
