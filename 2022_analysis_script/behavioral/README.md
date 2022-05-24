@@ -1,4 +1,4 @@
 Execute in the following order:
 
-1. Matlab main file 	for initial processing
-2. SPSS main file 	for statistical analysis
+1. Matlab `main.m` file	for initial processing
+2. SPSS `main.sps` file for statistical analysis
