@@ -5,3 +5,6 @@ _DATA/
 *.asv
 
 *.bat
+
+# ignore manuscript folder
+2022_manuscript/
