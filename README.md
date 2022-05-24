@@ -1,6 +1,8 @@
 
 ### TODO
 
+- make two distinct (physiological image) ROIs for each OLA phase
+- potentially create spherical ROIs based on significant regions in main effect of interests
 - fix displayResults titlestr
 - License file
 - publication

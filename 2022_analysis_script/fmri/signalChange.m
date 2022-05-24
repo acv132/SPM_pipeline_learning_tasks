@@ -70,7 +70,6 @@ for i = 1:numel(subjects)
         D = mardo(SPM);
         % if the folder directory is changed, this needs to happen for the
         % code to run
-%         D = mardo(fullfile(confile_path, '\SPM.mat'));
 %         D = cd_images(D, fullfile(fileparts(beh_data_path), "Subjects", ...
 %             subject_name, sequence));
 %         save_spm(D);
