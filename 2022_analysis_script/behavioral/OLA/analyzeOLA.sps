@@ -9,7 +9,7 @@
     and one effect of no interest (including items shown during encoding but which were falsely attributed to be “new”,
     new items correctly or incorrectly responded to, and missed responses). The six head movement parameters were included as confounds
     between-subject factor substance group and within-subject factor source judgement (correct, false);
-    Additionally we applied a signal detection analysis to investigate ageingrelated differences in “old” versus “new” judgements. This
+    Additionally we applied a signal detection analysis to investigate substance-related differences in “old” versus “new” judgements. This
     analysis determines the sensitivity, d', and the response criterion, c, of classifying old items as “old”
 
 * Encoding

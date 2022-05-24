@@ -1,6 +1,7 @@
 
 ### TODO
 
+- function descriptions behavioral scripts
 - make two distinct (physiological image) ROIs for OLA encoding scenarios
 	- Left fusiform gyrus and left hippocampal formation in successful encoding trials 
 	- Right middle frontal gyrus and left anterior insula for false encodings
@@ -17,13 +18,18 @@ This repository was **initially created on 18-05-2022** for an internship in the
 It contains scripts for analysis of behavioral and hemodynamic data of subjects[^2] who performed a **Procedural Learning**[^1] task 
 and an **Object Location Association**[^3] task.
 
-Scripts were created using
-- IBM SPSS 25
-- SPM 12
-- marsbar 0.45
-- WFU PickAtlas 3.0.5b
+#### Citation
+goes here
 
-#### Recommended folder setup
+#### Requirements
+Scripts were created using
+- [IBM SPSS 25](https://www.ibm.com/support/pages/downloading-ibm-spss-statistics-25)
+- [SPM 12](https://github.com/acv132/spm12)
+- [marsbar 0.45](https://github.com/acv132/marsbar)
+- [WFU PickAtlas 3.0.5b](https://www.nitrc.org/projects/wfu_pickatlas/)
+
+#### Setup
+##### Recommended folder setup
 When downloading the code, it is recommended to move the folder containing the data of subjects (not available here) adjacent to the 2022_analysis_script folder:
 ```bash
 ├───2022_analysis_script
@@ -50,6 +56,9 @@ When downloading the code, it is recommended to move the folder containing the d
     └───results
 ```
 The `DATA` folder should contain all additional logfiles, behavioral and subject fmri data. A `results` folder will be generated here for the fmri results by the analysis script.
+
+#### License
+**goes here**
 
 ##### References
 [^1]: [Ettinger, U., Corr, P. J., Mofidi, A., Williams, S. C., & Kumari, V. (2013). Dopaminergic basis of the psychosis-prone personality investigated with functional magnetic  resonance imaging of procedural learning. Frontiers in human neuroscience, 7, 130.](https://www.frontiersin.org/articles/10.3389/fnhum.2013.00130/full)

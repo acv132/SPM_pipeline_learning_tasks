@@ -18,7 +18,7 @@ function signalchange = signalChange(subjects, sequence, conds, ...
 %   e.g. "C:/PL_1stlevel/PATonly";
 % Outputs a cell containing the percentage of signal change for all
 %   subjects;
-% $Author: A. Kasparbauer, A. Vorreuther $Date: 2022/05/16
+% $Author: A. Kasparbauer, A. Vorreuther $Date: 2022/05/24
 arguments
     subjects (1,:) cell;
     sequence string;
