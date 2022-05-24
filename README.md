@@ -2,8 +2,8 @@
 ### TODO
 
 - make two distinct (physiological image) ROIs for OLA encoding scenarios
-	-- Left fusiform gyrus and left hippocampal formation in successful encoding trials 
-	-- Right middle frontal gyrus and left anterior insula for false encodings
+...* Left fusiform gyrus and left hippocampal formation in successful encoding trials 
+...* Right middle frontal gyrus and left anterior insula for false encodings
 - potentially create spherical ROIs based on significant regions in main effect of interests
 - fix displayResults titlestr
 - License file
