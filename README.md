@@ -1,6 +1,7 @@
 
 ### TODO
 
+- fix displayResults titlestr
 - License file
 - publication
 

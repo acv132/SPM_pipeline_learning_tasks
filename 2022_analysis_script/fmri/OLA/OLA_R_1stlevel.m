@@ -50,7 +50,7 @@ for i = 1:numel(subjects)
         % output directory
         output_dir = fullfile(firstlevel_data_path,substance,subject_name);
 
-       if ~exist(fullfile(output_dir, batch_name), "file") || isempty(dir(fullfile(fullfile(output_dir, "con*.nii"))))
+       if ~exist(fullfile(output_dir, "SPM.mat"), "file") || isempty(dir(fullfile(fullfile(output_dir, "con*.nii"))))
 
             forg_items = OLA.OLD.FORGSCR.N;
             miss_items = OLA.OLD.MISSSCR.N + OLA.NEW.MISS.N;
