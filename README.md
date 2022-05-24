@@ -25,7 +25,7 @@ Scripts were created using
 
 #### Recommended folder setup
 When downloading the code, it is recommended to move the folder containing the data of subjects (not available here) adjacent to the 2022_analysis_script folder:
-
+```bash
 ├───2022_analysis_script
 │   ├───behavioral
 │   │   ├───OLA
@@ -48,7 +48,7 @@ When downloading the code, it is recommended to move the folder containing the d
     ├───Behavioral
 	├───Subjects
     └───results
-	
+```
 The `DATA` folder should contain all additional logfiles, behavioral and subject fmri data. A `results` folder will be generated here by the analysis script.
 
 ##### References
