@@ -46,7 +46,7 @@ When downloading the code, it is recommended to move the folder containing the d
 └───DATA
     ├───Additional Logfiles
     ├───Behavioral
-	├───Subjects
+    ├───Subjects
     └───results
 ```
 The `DATA` folder should contain all additional logfiles, behavioral and subject fmri data. A `results` folder will be generated here by the analysis script.
