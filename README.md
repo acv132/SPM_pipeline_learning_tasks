@@ -23,6 +23,34 @@ Scripts were created using
 - marsbar 0.45
 - WFU PickAtlas 3.0.5b
 
+#### Recommended folder setup
+When downloading the code, it is recommended to move the folder containing the data of subjects (not available here) adjacent to the 2022_analysis_script folder:
+
+├───2022_analysis_script
+│   ├───behavioral
+│   │   ├───OLA
+│   │   └───PL
+│   ├───data
+│   │   └───ROIs
+│   │       ├───OLA
+│   │       └───PL
+│   ├───fmri
+│   │   ├───OLA
+│   │   ├───PL
+│   │   └───preprocessing
+│   ├───results
+│   │   ├───behavioral
+│   │	└───[batch file to fmri results folder]
+│   └───utils
+│       └───...
+└───DATA
+    ├───Additional Logfiles
+    ├───Behavioral
+	├───Subjects
+    └───results
+	
+The `DATA` folder should contain all additional logfiles, behavioral and subject fmri data. A `results` folder will be generated here by the analysis script.
+
 ##### References
 [^1]: [Ettinger, U., Corr, P. J., Mofidi, A., Williams, S. C., & Kumari, V. (2013). Dopaminergic basis of the psychosis-prone personality investigated with functional magnetic  resonance imaging of procedural learning. Frontiers in human neuroscience, 7, 130.](https://www.frontiersin.org/articles/10.3389/fnhum.2013.00130/full)
 [^2]: [Kasparbauer, A. M., Meyhöfer, I., Steffens, M., Weber, B., Aydin, M., Kumari, V., ... & Ettinger, U. (2016). Neural effects of methylphenidate and nicotine during smooth pursuit eye movements. Neuroimage, 141, 52-59.](https://www.sciencedirect.com/science/article/abs/pii/S1053811916303196)
