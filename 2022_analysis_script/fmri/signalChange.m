@@ -35,7 +35,8 @@ if string(sequence) == "PROCLEARN"
 else
     out_dir = sequence;
 end
-output_dir = fullfile(fileparts(beh_data_path), "results", out_dir+"_signalChange");
+output_dir = fullfile(fileparts(beh_data_path), "results", ...
+    out_dir+"_signalChange");
 mkdir(output_dir);
 
 %% initialise SPM defaults
