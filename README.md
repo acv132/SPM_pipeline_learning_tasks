@@ -59,7 +59,7 @@ When downloading the code, it is recommended to move the folder containing the d
 The `DATA` folder should contain all additional logfiles, behavioral and subject fmri data. A `results` folder will be generated here for the fmri results by the analysis script.
 
 #### License
-**goes here**
+goes here
 
 ##### References
 [^1]: [Ettinger, U., Corr, P. J., Mofidi, A., Williams, S. C., & Kumari, V. (2013). Dopaminergic basis of the psychosis-prone personality investigated with functional magnetic  resonance imaging of procedural learning. Frontiers in human neuroscience, 7, 130.](https://www.frontiersin.org/articles/10.3389/fnhum.2013.00130/full)
