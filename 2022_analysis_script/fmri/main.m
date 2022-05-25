@@ -32,9 +32,11 @@ do_OLA_R_signalChangeROI = false;
 % options for how and which contrasts are displayed in displayResults
 % function; if an option is not defined, a default is used in the method
 % you may also redefine certain options for each task individually by
-% inserting a different config in the code below
-contrastOptions.whichCon = Inf; % Inf: all are displayed;
-% 1: only first contrast etc.
+% inserting a different config in the code below; example:
+% = Inf     : all are displayed; 
+% = [1, 2]  : first two are displayed; 
+% = 3       : third is displayed
+contrastOptions.whichCon = 4; 
 contrastOptions.threshType = 'FWE'; % type of threshold : FWE , none
 contrastOptions.threshold = 0.0500; % significance threshold
 contrastOptions.extent = 0; % in voxels
@@ -58,8 +60,8 @@ contrastOptions.maskThreshold = 0.0500; % threshold for mask
 % enter export of results as array into cell; allowed are
 % pdf, jpg, png, csv, ps, eps, fig, tif, xls;
 % example: {'png', 'csv', 'fig'};
-contrastOptions.export = {'ps'};
-contrastOptions.deletePrevious = true; % whether to delete old exports of results
+contrastOptions.export = {'png'};
+contrastOptions.deletePrevious = true; % whether to delete old exports
 
 % necessary to display results
 if show_PL_Results
