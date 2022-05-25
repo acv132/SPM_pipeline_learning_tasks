@@ -38,11 +38,11 @@ end
 
 %% setup batch job structure
 if contrastOptions.whichCon == Inf
-    contrastOptions.whichCon = length(spm.SPM.xCon);
+    contrastOptions.whichCon = [1:length(spm.SPM.xCon)];
 end
 doContrastMask = contrastOptions.applyContrastAsMask ~= 0;
 doImageMask = isfile(contrastOptions.applyImageAsMask);
-for c=1:contrastOptions.whichCon
+for c=contrastOptions.whichCon
     results = struct;
     results.matlabbatch{1}.spm.stats.results ...
         .spmmat = cellstr(fullfile(spm.SPM.swd, "SPM.mat"));

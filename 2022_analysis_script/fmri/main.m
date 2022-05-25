@@ -20,7 +20,7 @@ subjects = list_vp_names(beh_data_path);
 do_preprocess = false;
 
 do_PL_analysis = false; % to run 1st-level, fullfactorial, and ANOVA
-show_PL_Results = true; % to save images of results; CAUTION: takes a while too
+show_PL_Results = false; % to save images of results; CAUTION: takes a while too
 do_PL_signalChangeROI = false; % to run signal change analysis with marsbar
 
 do_OLA_analysis = false;
@@ -39,12 +39,12 @@ contrastOptions.threshType = 'FWE'; % type of threshold : FWE , none
 contrastOptions.threshold = 0.0500; % significance threshold
 contrastOptions.extent = 0; % in voxels
 
-% if set to true, you can additionally define a contrast as mask to apply 
-% to results; which contrast is used for each task is defined below in the
-% displayResults section; each contrast corresponds to the number it holds 
-% in the SPM file; to find out which contrast has which number, load in 
-% the SPM file of interest and type {yourSPMofinterest}.SPM.xCon(1).name 
-% into the command prompt
+% if set to true, you can define a contrast as mask to apply to results;
+% which contrast is used for each task is defined below in the
+% displayResults section; each contrast corresponds to the number it holds
+% in the SPM file; to find out which contrast has which number, load in the
+% SPM file of interest and type {yourSPMofinterest}.SPM.xCon(1).name into
+% the command prompt
 useContrastMask = false;
 
 % if set to true, you can additionally define an image ('*.nii') as mask 
@@ -58,7 +58,7 @@ contrastOptions.maskThreshold = 0.0500; % threshold for mask
 % enter export of results as array into cell; allowed are
 % pdf, jpg, png, csv, ps, eps, fig, tif, xls;
 % example: {'png', 'csv', 'fig'};
-contrastOptions.export = {'png'};
+contrastOptions.export = {'ps'};
 contrastOptions.deletePrevious = true; % whether to delete old exports of results
 
 % necessary to display results
