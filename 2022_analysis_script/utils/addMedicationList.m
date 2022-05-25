@@ -1,7 +1,7 @@
 function MedList = addMedicationList()
-% addMedicationList adds the Med_List.txt file from data to be used in
+% ADDMEDICATIONLIST adds the Med_List.txt file from data to be used in
 % analyses
-% $Author: A. Kasparbauer, A. Vorreuther
+% $Author: A. Kasparbauer, A. Vorreuther $Date: 2022/03/16
 
 filename = '..\data\Med_List.txt';
 delimiter = '\t';

@@ -1,4 +1,5 @@
-function [project_path,beh_data_path,fmri_data_path, firstlevel_data_path] = importPaths(varargin)
+function [project_path,beh_data_path,fmri_data_path, ...
+    firstlevel_data_path] = importPaths(varargin)
 % IMPORTPATHS is used to define import paths for running the analysis;
 % the paths created are a 
 %       project_path: path leading to the project

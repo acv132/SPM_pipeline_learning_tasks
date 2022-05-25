@@ -1,16 +1,20 @@
 function analyzePL(beh_data_path, subjects, MedList)
-% analyzePL analyses random vs patterned trials of the Procedural Learning
+% ANALYZEPL analyses random vs patterned trials of the Procedural Learning
 % (PL) task
-% analyzePL(beh_data_path, subjects, MedList) takes as first argument
-% a directory in form of a string leading to the behavioral data folder 
-% containing all subjects, e.g. "D:\DATA\Behavioral"; 
-% the second argument should be a cell of size 1xn number of subjects 
-% where each cell contains a string or character array with a subject 
-% number, e.g. "001"; 
-% the third argument should be a cell of size n number of subjecty x 2 
-% where one row contains the subject number and the second contains a 
-% string indicating the substance group the subject was assigned to.
+% ANALYZEPL(beh_data_path, subjects, MedList) takes as 
+% 1. argument: a directory in form of a string leading to the behavioral
+%   data folder containing all subjects, e.g. "D:\DATA\Behavioral";
+% 2. argument: a cell of size 1xn number of subjects where each cell
+%   contains a string or character array with a subject number, e.g. "001";
+% 3. argument: a cell of size n number of subjects x 2 where one row
+%   contains the subject number and the second contains a string indicating
+%   the substance group the subject was assigned to.
 % $Author: A. Kasparbauer, A. Vorreuther $Date: 2022/03/28
+arguments
+    beh_data_path {string, mustBeFolder};
+    subjects (1,:) cell;
+    MedList (:, 2) cell;
+end
 pl_errors = [];
 for i = 1 : numel(subjects)
 

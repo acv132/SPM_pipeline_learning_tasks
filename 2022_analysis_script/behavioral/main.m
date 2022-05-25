@@ -1,5 +1,7 @@
-function main
+% function main
 % Behavioral data analysis
+% project: Procedural Learning (PL) task and Object Location Association
+% (OLA) task
 % $Author: A. Vorreuther $Date: 2022/03/28
 
 clear;
@@ -28,17 +30,20 @@ analyzeOLA(beh_data_path, subjects, MedList)
 analyzePL(beh_data_path, subjects, MedList)
 plotPL
 
-end
-
 function createNEUTRALmat(beh_data_path, subjects)
-% createNEUTRALmat Creates subject structure array of behavioral
+% CREATENEUTRALMAT Create subject structure array of behavioral
 % measurements
-% createNEUTRALmat(beh_data_path, subjects) takes as first argument a
-% directory in form of a string leading to the behavioral data folder 
-% containing all subjects, e.g. "D:\DATA\Behavioral"; the second argument
-% should be a cell of size 1xn number of subjects where each cell contains
-% a string or character array with a subject number, e.g. "001".
+% CREATENEUTRALMAT(beh_data_path, subjects) takes as 
+% 1. argument: a directory in form of a string leading to the behavioral
+%   data folder containing all subjects, e.g. "D:\DATA\Behavioral";
+% 2. argument: a cell of size 1xn number of subjects where each
+%   cell contains a string or character array with a subject number, e.g.
+%   "001".
 % $Author: A. Kasparbauer, A. Vorreuther
+arguments
+    beh_data_path {string, mustBeFolder};
+    subjects (1,:) cell;
+end
 missing_data = [];
 for i = 1 : numel(subjects)
 
@@ -71,7 +76,7 @@ clear;
 end
 
 function createSPSSinput
-% createSPSSinput creates SPSS data input matrix of behavioral data from
+% CREATESPSSINPUT Create SPSS data input matrix of behavioral data from
 % NEUTRAL.mat file (see createNEUTRALmat function above)
 % $Author: A. Kasparbauer, A. Vorreuther
 

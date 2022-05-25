@@ -1,5 +1,5 @@
 function plotPL
-% plotPL generates a bar graph of random vs. patterned trials of the PL
+% PLOTPL generates a bar graph of random vs. patterned trials of the PL
 % task
 % $Author: A. Kasparbauer, A. Vorreuther $Date: 2022/04/28
 addpath("..\utils");
