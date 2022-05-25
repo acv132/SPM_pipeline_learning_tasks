@@ -20,11 +20,11 @@ subjects = list_vp_names(beh_data_path);
 do_preprocess = false;
 
 do_PL_analysis = false; % to run 1st-level, fullfactorial, and ANOVA
-show_PL_Results = true; % to save images of results; CAUTION: takes a while too
+show_PL_Results = false; % to save images of results; CAUTION: takes a while too
 do_PL_signalChangeROI = false; % to run signal change analysis with marsbar
 
 do_OLA_analysis = false;
-show_OLA_Results = false;
+show_OLA_Results = true;
 do_OLA_E_signalChangeROI = false;
 do_OLA_R_signalChangeROI = false;
 
