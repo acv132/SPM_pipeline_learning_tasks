@@ -2,7 +2,6 @@
 ### TODO
 
 - provide references for code script (EndNote at home)
-- function descriptions behavioral scripts
 - make two distinct (physiological image) ROIs for OLA encoding scenarios
 	- Left fusiform gyrus and left hippocampal formation in successful encoding trials 
 	- Right middle frontal gyrus and left anterior insula for false encodings
