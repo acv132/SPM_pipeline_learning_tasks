@@ -20,7 +20,7 @@ subjects = list_vp_names(beh_data_path);
 do_preprocess = false;
 
 do_PL_analysis = false; % to run 1st-level, fullfactorial, and ANOVA
-show_PL_Results = false; % to save images of results; CAUTION: takes a while too
+show_PL_Results = true; % to save images of results; CAUTION: takes a while too
 do_PL_signalChangeROI = false; % to run signal change analysis with marsbar
 
 do_OLA_analysis = false;
@@ -39,23 +39,26 @@ contrastOptions.threshType = 'FWE'; % type of threshold : FWE , none
 contrastOptions.threshold = 0.0500; % significance threshold
 contrastOptions.extent = 0; % in voxels
 
-% define a contrast as mask to apply to results; 0: no mask, integer number
-% of a contrast to apply this contrast as mask, e.g. 1; to find out, which
-% contrast corresponds to a certain number, load in the SPM file of interest
-% and type {yourSPMofinterest}.SPM.xCon(1).name into the command prompt
-contrastOptions.applyContrastAsMask = 1;
-% maskType: whether the mask should be inclusive (0) or exclusive (1)
-contrastOptions.maskType = 0;
-contrastOptions.maskThreshold = 0.0500; % threshold for mask
+% if set to true, you can additionally define a contrast as mask to apply 
+% to results; which contrast is used for each task is defined below in the
+% displayResults section; each contrast corresponds to the number it holds 
+% in the SPM file; to find out which contrast has which number, load in 
+% the SPM file of interest and type {yourSPMofinterest}.SPM.xCon(1).name 
+% into the command prompt
+useContrastMask = false;
 
 % if set to true, you can additionally define an image ('*.nii') as mask 
 % to apply to results of PL and OLA task, respectively;
 useImageMask = true;
 
+% maskType: whether the mask should be inclusive (0) or exclusive (1)
+contrastOptions.maskType = 0;
+contrastOptions.maskThreshold = 0.0500; % threshold for mask
+
 % enter export of results as array into cell; allowed are
 % pdf, jpg, png, csv, ps, eps, fig, tif, xls;
 % example: {'png', 'csv', 'fig'};
-contrastOptions.export = {'fig'};
+contrastOptions.export = {'png'};
 contrastOptions.deletePrevious = true; % whether to delete old exports of results
 
 % necessary to display results
@@ -182,19 +185,21 @@ if do_OLA_analysis
 end
 
 %% results of analyses above saved as graphics
-
 if show_PL_Results
     if useImageMask
         [roi_file, roi_name] = getROI(beh_data_path, ...
             "image mask for PL results", '*.nii');
         contrastOptions.applyImageAsMask = roi_file;
     end
-
-    contrastOptions.applyContrastAsMask = find(strcmp({SPM_PL.SPM.xCon.name}, ...
-        'Main effect of MPH_NIC_PLC')==1);
+    if useContrastMask
+        contrastOptions.applyContrastAsMask = find(strcmp({SPM_PL.SPM ...
+            .xCon.name}, 'Main effect of MPH_NIC_PLC')==1);
+    end
     displayResults(SPM_PL, 'PL fullfactorial', contrastOptions);
-    contrastOptions.applyContrastAsMask = find(strcmp( ...
-        {SPM_ANOVA_PL.SPM.xCon.name}, 'group difference')==1);
+    if useContrastMask
+        contrastOptions.applyContrastAsMask = find(strcmp( ...
+            {SPM_ANOVA_PL.SPM.xCon.name}, 'group difference')==1);
+    end
     displayResults(SPM_ANOVA_PL, 'PL ANOVA', contrastOptions);
 end
 if show_OLA_Results
@@ -203,14 +208,20 @@ if show_OLA_Results
             "image mask for OLA results", '*.nii');
         contrastOptions.applyImageAsMask = roi_file;
     end
-    contrastOptions.applyContrastAsMask = find(strcmp( ...
-        {SPM_OLA_E.SPM.xCon.name}, 'Main effect of CORSCE_FALSCE')==1);
+    if useContrastMask
+        contrastOptions.applyContrastAsMask = find(strcmp( ...
+            {SPM_OLA_E.SPM.xCon.name}, 'Main effect of CORSCE_FALSCE')==1);
+    end
     displayResults(SPM_OLA_E, 'OLA_E fullfactorial', contrastOptions);
-    contrastOptions.applyContrastAsMask = find(strcmp( ...
-        {SPM_OLA_R.SPM.xCon.name}, 'Main effect of CORSCR_FALSCR')==1);
+    if useContrastMask
+        contrastOptions.applyContrastAsMask = find(strcmp( ...
+            {SPM_OLA_R.SPM.xCon.name}, 'Main effect of CORSCR_FALSCR')==1);
+    end
     displayResults(SPM_OLA_R, 'OLA_R fullfactorial', contrastOptions);
-    contrastOptions.applyContrastAsMask = find(strcmp( ...
-        {SPM_ANOVA_OLA{1}.SPM.xCon.name}, 'group difference')==1);
+    if useContrastMask
+        contrastOptions.applyContrastAsMask = find(strcmp( ...
+            {SPM_ANOVA_OLA{1}.SPM.xCon.name}, 'group difference')==1);
+    end
     displayResults(SPM_ANOVA_OLA{1}, 'OLA_E ANOVA', contrastOptions);
     displayResults(SPM_ANOVA_OLA{2}, 'OLA_R ANOVA', contrastOptions);
 end
