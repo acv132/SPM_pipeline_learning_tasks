@@ -19,14 +19,14 @@ subjects = list_vp_names(beh_data_path);
 
 do_preprocess = false;
 
-do_PL_analysis = true; % to run 1st-level, fullfactorial, and ANOVA
-show_PL_Results = false; % to save images of results; CAUTION: takes a while too
-do_PL_signalChangeROI = true; % to run signal change analysis with marsbar
+do_PL_analysis = false; % to run 1st-level, fullfactorial, and ANOVA
+show_PL_Results = true; % to save images of results; CAUTION: takes a while too
+do_PL_signalChangeROI = false; % to run signal change analysis with marsbar
 
-do_OLA_analysis = true;
+do_OLA_analysis = false;
 show_OLA_Results = false;
-do_OLA_E_signalChangeROI = true;
-do_OLA_R_signalChangeROI = true;
+do_OLA_E_signalChangeROI = false;
+do_OLA_R_signalChangeROI = false;
 
 
 % options for how and which contrasts are displayed in displayResults
@@ -55,7 +55,7 @@ useImageMask = true;
 % enter export of results as array into cell; allowed are
 % pdf, jpg, png, csv, ps, eps, fig, tif, xls;
 % example: {'png', 'csv', 'fig'};
-contrastOptions.export = {'png', 'csv'};
+contrastOptions.export = {'fig'};
 contrastOptions.deletePrevious = true; % whether to delete old exports of results
 
 % necessary to display results
@@ -186,7 +186,7 @@ end
 if show_PL_Results
     if useImageMask
         [roi_file, roi_name] = getROI(beh_data_path, ...
-            "contrast mask for PL results", '*.nii');
+            "image mask for PL results", '*.nii');
         contrastOptions.applyImageAsMask = roi_file;
     end
 
@@ -200,7 +200,7 @@ end
 if show_OLA_Results
     if useImageMask
         [roi_file, roi_name] = getROI(beh_data_path, ...
-            "contrast mask for OLA results", '*.nii');
+            "image mask for OLA results", '*.nii');
         contrastOptions.applyImageAsMask = roi_file;
     end
     contrastOptions.applyContrastAsMask = find(strcmp( ...
