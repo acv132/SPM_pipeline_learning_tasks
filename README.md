@@ -14,10 +14,11 @@ and an **Object Location Association**[^3] task.
 ### Citation
 If you use this code or parts of it, please cite
 ***reference goes here*** 
+
 Vorreuther, A., Kasparbauer, A., & Ettinger, U. (2022). *title*. Retrieved from https://github.com/acv132/UniBonnPraktikum2022.
-'''
+```
  BibTex reference here
-'''
+```
 
 ### Requirements
 - [IBM SPSS 25](https://www.ibm.com/support/pages/downloading-ibm-spss-statistics-25)
