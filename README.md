@@ -12,7 +12,8 @@ It contains scripts for analysis of behavioral and hemodynamic data of subjects[
 and an **Object Location Association**[^3] task.
 
 ### Citation
-goes here
+If you use this code or parts of it, please cite
+***reference goes here***
 
 ### Requirements
 - [IBM SPSS 25](https://www.ibm.com/support/pages/downloading-ibm-spss-statistics-25)
