@@ -21,6 +21,9 @@ goes here
 - [WFU PickAtlas 3.0.5b](https://www.nitrc.org/projects/wfu_pickatlas/)
 
 ### Setup
+
+Make sure that all [required toolboxes and software](#Requirements) are installed and running. For help, refer to the respective website and documentation (see also links above).
+
 #### Recommended folder setup
 When downloading the code, it is recommended to move the folder containing the data of subjects (not available here) adjacent to the 2022_analysis_script folder:
 ```bash
