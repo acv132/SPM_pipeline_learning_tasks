@@ -22,7 +22,7 @@ for s=sequences
     for fidx=1:length(files)
         f = files(fidx);
         name = split(f.name, '.');
-        name = [name{1}, '_roi'];
+        name = name{1};
         img2rois(fullfile(f.folder, f.name),roi_dir, name, 'i');
     end
 end

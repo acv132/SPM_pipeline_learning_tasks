@@ -191,7 +191,7 @@ allROIs = dir(fullfile( ...
     "F:\UniBonnPraktikum2022\2022_analysis_script\data\ROIs\PL", "*.nii"));
 for r=1:length(allROIs)
     roi_file = fullfile(allROIs(r).folder, allROIs(r).name);
-    roi_name =  allROIs(r).name;
+    roi_name =allROIs(r).name;
     roi_name = split(roi_name, '.');
 if show_PL_Results
     if useImageMask
