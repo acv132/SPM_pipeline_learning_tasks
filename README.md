@@ -1,7 +1,8 @@
 
 ### TODO
 
-- potentially create spherical ROIs based on significant regions in main effect of interests
+- systematic ROI analyses
+- add contents file for overview of functions
 
 ## UniBonnPraktikum2022
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)

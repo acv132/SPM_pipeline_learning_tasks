@@ -45,7 +45,19 @@ spm_jobman('initcfg');
 marsbar('on')
 
 % load in files of regions of interest
-[roi_file, roi_name] = getROI(beh_data_path, sequence, '*.mat');
+% [roi_file, roi_name] = getROI(beh_data_path, sequence, '*.mat');
+
+if out_dir == "PL"
+allROIs = dir(fullfile( ...
+    "F:\UniBonnPraktikum2022\2022_analysis_script\data\ROIs\PL", "*roi.mat"));
+else
+allROIs = dir(fullfile( ...
+    "F:\UniBonnPraktikum2022\2022_analysis_script\data\ROIs\OLA", "*roi.mat"));
+end
+for r=1:length(allROIs)
+    roi_name =  allROIs(r).name;
+    roi_name = split(roi_name, '.');
+    roi_file = fullfile(allROIs(r).folder, allROIs(r).name);
 
 %% loop over every subject
 for i = 1:numel(subjects)
@@ -214,5 +226,6 @@ try
     close;
 catch
     return;
+end
 end
 end
