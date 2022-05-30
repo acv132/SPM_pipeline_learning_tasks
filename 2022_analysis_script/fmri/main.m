@@ -20,11 +20,11 @@ subjects = list_vp_names(beh_data_path);
 do_preprocess = false;
 
 do_PL_analysis = false; % to run 1st-level, fullfactorial, and ANOVA
-show_PL_Results = false; % to save images of results; CAUTION: takes a while too
+show_PL_Results = true; % to save images of results; CAUTION: takes a while too
 do_PL_signalChangeROI = false; % to run signal change analysis with marsbar
 
 do_OLA_analysis = false;
-show_OLA_Results = true;
+show_OLA_Results = false;
 do_OLA_E_signalChangeROI = false;
 do_OLA_R_signalChangeROI = false;
 
@@ -36,7 +36,7 @@ do_OLA_R_signalChangeROI = false;
 % = Inf     : all are displayed; 
 % = [1, 2]  : first two are displayed; 
 % = 3       : third is displayed
-contrastOptions.whichCon = 4; 
+contrastOptions.whichCon = Inf; 
 contrastOptions.threshType = 'FWE'; % type of threshold : FWE , none
 contrastOptions.threshold = 0.0500; % significance threshold
 contrastOptions.extent = 0; % in voxels
