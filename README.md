@@ -1,7 +1,6 @@
 
 ### TODO
 
-- provide references for code script (EndNote at home)
 - potentially create spherical ROIs based on significant regions in main effect of interests
 
 ### UniBonnPraktikum2022
