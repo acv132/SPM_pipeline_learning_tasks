@@ -11,9 +11,13 @@ and an **Object Location Association**[^3] task.
 If you use this code or parts of it, please cite
 ***reference goes here*** 
 
-Vorreuther, A., Kasparbauer, A., & Ettinger, U. (2022). *title*. Retrieved from https://github.com/acv132/SPM_pipeline_learning_tasks.
+Vorreuther, A., Kasparbauer, A., & Ettinger, U. (2022). *A custom analysis pipeline for fMRI data using the Statistical Parametric Mapping software*. Retrieved from https://github.com/acv132/SPM_pipeline_learning_tasks.
 ```
- BibTex reference here
+ @unpublished{unpublishedkey,
+ author = "Vorreuther, Anna, Kasparbauer, Anna, Ettinger, Ulrich"
+ title = "A custom analysis pipeline for fMRI data using the Statistical Parametric Mapping software"
+ year = "2022" 
+ }
 ```
 
 ### Requirements
@@ -54,11 +58,11 @@ When downloading the code, it is recommended to move the folder containing the d
 ```
 The `DATA` folder should contain all additional logfiles, behavioral and subject fmri data. A `results` folder will be generated here for the fmri results by the analysis script.
 
+#### TODO
+
+- add applyhatch_plusColor function
+
 #### References
 [^1]: [Ettinger, U., Corr, P. J., Mofidi, A., Williams, S. C., & Kumari, V. (2013). Dopaminergic basis of the psychosis-prone personality investigated with functional magnetic  resonance imaging of procedural learning. Frontiers in human neuroscience, 7, 130.](https://www.frontiersin.org/articles/10.3389/fnhum.2013.00130/full)
 [^2]: [Kasparbauer, A. M., Meyhöfer, I., Steffens, M., Weber, B., Aydin, M., Kumari, V., ... & Ettinger, U. (2016). Neural effects of methylphenidate and nicotine during smooth pursuit eye movements. Neuroimage, 141, 52-59.](https://www.sciencedirect.com/science/article/abs/pii/S1053811916303196)
 [^3]: [Kukolja, J., Thiel, C. M., Wilms, M., Mirzazade, S., & Fink, G. R. (2009). Ageing-related changes of neural activity associated with spatial contextual memory.     Neurobiology of aging, 30(4), 630-645.](https://www.sciencedirect.com/science/article/abs/pii/S0197458007003363)
-
-##### TODO
-
-- add applyhatch_plusColor function
