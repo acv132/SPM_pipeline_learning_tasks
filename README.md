@@ -16,6 +16,7 @@ Vorreuther, A. (2022). *A custom analysis pipeline for fMRI data using the Stati
 title = {A custom analysis pipeline for fMRI data using the Statistical Parametric Mapping software},
 author = {{Vorreuther, Anna}},
 year = {2022},
+howpublished = {Retrieved from https://github.com/acv132/SPM_pipeline_learning_tasks},
 note = {unpublished}
 }
 ```
