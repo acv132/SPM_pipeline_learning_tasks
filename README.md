@@ -11,6 +11,15 @@ and an **Object Location Association**[^3] task.
 If you use this code or parts of it, please cite:
 
 Vorreuther, A. (2022). *A custom analysis pipeline for fMRI data using the Statistical Parametric Mapping software*. Retrieved from https://github.com/acv132/SPM_pipeline_learning_tasks.
+```
+@unpublished{vorreuther2022,
+title = {A custom analysis pipeline for fMRI data using the Statistical Parametric Mapping software},
+author = {{Vorreuther, Anna}},
+year = {2022},
+note = {unpublished}
+}
+```
+
 
 ### Requirements
 - [IBM SPSS 25](https://www.ibm.com/support/pages/downloading-ibm-spss-statistics-25)

@@ -25,8 +25,8 @@ do_PL_signalChangeROI = false; % to run signal change analysis with marsbar
 
 do_OLA_analysis = false;
 show_OLA_Results = false;
-do_OLA_E_signalChangeROI = true;
-do_OLA_R_signalChangeROI = true;
+do_OLA_E_signalChangeROI = false;
+do_OLA_R_signalChangeROI = false;
 
 
 % options for how and which contrasts are displayed in displayResults
