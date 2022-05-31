@@ -14,11 +14,7 @@ If you use this code or parts of it, please cite
 Vorreuther, A., Kasparbauer, A., & Ettinger, U. (2022). *A custom analysis pipeline for fMRI data using the Statistical Parametric Mapping software*. Retrieved from https://github.com/acv132/SPM_pipeline_learning_tasks.
 ```
  @unpublished{
- Author = {
-		 Vorreuther, Anna, 
-		 Kasparbauer, Anna, 
-		 Ettinger, Ulrich
-		 }
+ Author = {Vorreuther, Anna, Kasparbauer, Anna, Ettinger, Ulrich}
  Title = {A custom analysis pipeline for fMRI data using the Statistical Parametric Mapping software}
  Year = {2022}
  }
