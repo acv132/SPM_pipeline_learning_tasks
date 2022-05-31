@@ -33,9 +33,9 @@ note = {unpublished}
 Make sure that all required toolboxes and software are installed and running. For help, refer to the respective website and documentation (see also links above).
 
 #### Recommended folder setup
-When downloading the code, it is recommended to move the folder containing the data of subjects (not available here) adjacent to the 2022_analysis_script folder:
+When downloading the code, it is recommended to move the folder containing the data of subjects (not available here) adjacent to the analysis_script folder:
 ```bash
-├───2022_analysis_script
+├───analysis_script
 │   ├───behavioral
 │   │   ├───OLA
 │   │   └───PL
@@ -47,9 +47,9 @@ When downloading the code, it is recommended to move the folder containing the d
 │   │   ├───OLA
 │   │   ├───PL
 │   │   └───preprocessing
-│   ├───results
+│   ├───results (created by scripts)
 │   │   ├───behavioral
-│   │	└───[batch file to fmri results folder]
+│   │	└───[optionally add a batch file to fmri results folder here]
 │   └───utils
 │       └───...
 └───DATA
