@@ -10,7 +10,7 @@ and an **Object Location Association**[^3] task.
 ### Citation
 If you use this code or parts of it, please cite:
 
-Vorreuther, A. Kasparbauer, A., Ettinger, U. (2022). *A custom analysis pipeline for fMRI data using the Statistical Parametric Mapping software*. Retrieved from https://github.com/acv132/SPM_pipeline_learning_tasks.
+Vorreuther, A., Kasparbauer, A., Ettinger, U. (2022). *A custom analysis pipeline for fMRI data using the Statistical Parametric Mapping software*. Retrieved from https://github.com/acv132/SPM_pipeline_learning_tasks.
 ```
 @unpublished{vorreuther2022,
 title = {A custom analysis pipeline for fMRI data using the Statistical Parametric Mapping software},
