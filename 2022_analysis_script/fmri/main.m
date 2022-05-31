@@ -21,10 +21,10 @@ do_preprocess = false;
 
 do_PL_analysis = false; % to run 1st-level, fullfactorial, and ANOVA
 show_PL_Results = true; % to save images of results; CAUTION: takes a while too
-do_PL_signalChangeROI = true; % to run signal change analysis with marsbar
+do_PL_signalChangeROI = false; % to run signal change analysis with marsbar
 
 do_OLA_analysis = false;
-show_OLA_Results = true;
+show_OLA_Results = false;
 do_OLA_E_signalChangeROI = true;
 do_OLA_R_signalChangeROI = true;
 
@@ -33,10 +33,10 @@ do_OLA_R_signalChangeROI = true;
 % function; if an option is not defined, a default is used in the method
 % you may also redefine certain options for each task individually by
 % inserting a different config in the code below; example:
-% = Inf     : all are displayed; 
-% = [1, 2]  : first two are displayed; 
+% = Inf     : all are displayed;
+% = [1, 2]  : first two are displayed;
 % = 3       : third is displayed
-contrastOptions.whichCon = Inf; 
+contrastOptions.whichCon = Inf;
 contrastOptions.threshType = 'FWE'; % type of threshold : FWE , none
 contrastOptions.threshold = 0.0500; % significance threshold
 contrastOptions.extent = 0; % in voxels
@@ -49,7 +49,7 @@ contrastOptions.extent = 0; % in voxels
 % the command prompt
 useContrastMask = false;
 
-% if set to true, you can additionally define an image ('*.nii') as mask 
+% if set to true, you can additionally define an image ('*.nii') as mask
 % to apply to results of PL and OLA task, respectively;
 useImageMask = true;
 
@@ -187,64 +187,101 @@ if do_OLA_analysis
 end
 
 %% results of analyses above saved as graphics
-allROIs = dir(fullfile( ...
-    "F:\UniBonnPraktikum2022\2022_analysis_script\data\ROIs\PL", "*.nii"));
-for r=1:length(allROIs)
-    roi_file = fullfile(allROIs(r).folder, allROIs(r).name);
-    roi_name =allROIs(r).name;
-    roi_name = split(roi_name, '.');
+
 if show_PL_Results
     if useImageMask
-%         [roi_file, roi_name] = getROI(beh_data_path, ...
-%             "image mask for PL results", '*.nii');
-        contrastOptions.applyImageAsMask = roi_file;
+        [roi_files, roi_names] = getROI(beh_data_path, ...
+            "image mask for PL results", '*.nii');
+        for r=1:length(roi_files)
+            roi_name = roi_names{r};
+            roi_file = roi_files{r};
+            contrastOptions.applyImageAsMask = roi_file;
+            if useContrastMask
+                contrastOptions.applyContrastAsMask = find(strcmp( ...
+                    {SPM_PL.SPM.xCon.name}, ...
+                    'Main effect of MPH_NIC_PLC')==1);
+            end
+            contrastOptions.whichCon = [12, 6:11];
+            displayResults(SPM_PL, 'PL fullfactorial', contrastOptions);
+            if useContrastMask
+                contrastOptions.applyContrastAsMask = find(strcmp( ...
+                    {SPM_ANOVA_PL.SPM.xCon.name}, 'group difference')==1);
+            end
+            contrastOptions.whichCon = Inf;
+            displayResults(SPM_ANOVA_PL, 'PL ANOVA', contrastOptions);
+        end
+    else
+        if useContrastMask
+            contrastOptions.applyContrastAsMask = find(strcmp({SPM_PL.SPM ...
+                .xCon.name}, 'Main effect of MPH_NIC_PLC')==1);
+        end
+        contrastOptions.whichCon = [12, 6:11];
+        displayResults(SPM_PL, 'PL fullfactorial', contrastOptions);
+        if useContrastMask
+            contrastOptions.applyContrastAsMask = find(strcmp( ...
+                {SPM_ANOVA_PL.SPM.xCon.name}, 'group difference')==1);
+        end
+        contrastOptions.whichCon = Inf;
+        displayResults(SPM_ANOVA_PL, 'PL ANOVA', contrastOptions);
     end
-    if useContrastMask
-        contrastOptions.applyContrastAsMask = find(strcmp({SPM_PL.SPM ...
-            .xCon.name}, 'Main effect of MPH_NIC_PLC')==1);
-    end
-    contrastOptions.whichCon = [12, 6:11];
-    displayResults(SPM_PL, 'PL fullfactorial', contrastOptions);
-    if useContrastMask
-        contrastOptions.applyContrastAsMask = find(strcmp( ...
-            {SPM_ANOVA_PL.SPM.xCon.name}, 'group difference')==1);
-    end
-    contrastOptions.whichCon = Inf;
-    displayResults(SPM_ANOVA_PL, 'PL ANOVA', contrastOptions);
 end
-end
-allROIs = dir(fullfile( ...
-    "F:\UniBonnPraktikum2022\2022_analysis_script\data\ROIs\OLA", "*.nii"));
-for r=1:length(allROIs)
-    roi_file = fullfile(allROIs(r).folder, allROIs(r).name);
-    roi_name =  allROIs(r).name;
-    roi_name = split(roi_name, '.');
+
 if show_OLA_Results
     if useImageMask
-%         [roi_file, roi_name] = getROI(beh_data_path, ...
-%             "image mask for OLA results", '*.nii');
-        contrastOptions.applyImageAsMask = roi_file;
+        [roi_files, roi_names] = getROI(beh_data_path, ...
+            "image mask for OLA results", '*.nii');
+        for r=1:length(roi_files)
+            roi_name = roi_names{r};
+            roi_file = roi_files{r};
+            contrastOptions.applyImageAsMask = roi_file;
+            if useContrastMask
+                contrastOptions.applyContrastAsMask = find(strcmp( ...
+                    {SPM_OLA_E.SPM.xCon.name}, ...
+                    'Main effect of CORSCE_FALSCE')==1);
+            end
+            contrastOptions.whichCon = [3, 4, 11:17];
+            displayResults(SPM_OLA_E, 'OLA_E fullfactorial', ...
+                contrastOptions);
+            if useContrastMask
+                contrastOptions.applyContrastAsMask = find(strcmp( ...
+                    {SPM_OLA_R.SPM.xCon.name}, ...
+                    'Main effect of CORSCR_FALSCR')==1);
+            end
+            contrastOptions.whichCon = [3, 4, 11:17, 19];
+            displayResults(SPM_OLA_R, 'OLA_R fullfactorial', ...
+                contrastOptions);
+            if useContrastMask
+                contrastOptions.applyContrastAsMask = find(strcmp( ...
+                    {SPM_ANOVA_OLA{1}.SPM.xCon.name}, ...
+                    'group difference')==1);
+            end
+            contrastOptions.whichCon = Inf;
+            displayResults(SPM_ANOVA_OLA{1}, 'OLA_E ANOVA', contrastOptions);
+            displayResults(SPM_ANOVA_OLA{2}, 'OLA_R ANOVA', contrastOptions);
+        end
+    else
+        if useContrastMask
+            contrastOptions.applyContrastAsMask = find(strcmp( ...
+                {SPM_OLA_E.SPM.xCon.name}, ...
+                'Main effect of CORSCE_FALSCE')==1);
+        end
+        contrastOptions.whichCon = [3, 4, 11:17];
+        displayResults(SPM_OLA_E, 'OLA_E fullfactorial', contrastOptions);
+        if useContrastMask
+            contrastOptions.applyContrastAsMask = find(strcmp( ...
+                {SPM_OLA_R.SPM.xCon.name}, ...
+                'Main effect of CORSCR_FALSCR')==1);
+        end
+        contrastOptions.whichCon = [3, 4, 11:17, 19];
+        displayResults(SPM_OLA_R, 'OLA_R fullfactorial', contrastOptions);
+        if useContrastMask
+            contrastOptions.applyContrastAsMask = find(strcmp( ...
+                {SPM_ANOVA_OLA{1}.SPM.xCon.name}, 'group difference')==1);
+        end
+        contrastOptions.whichCon = Inf;
+        displayResults(SPM_ANOVA_OLA{1}, 'OLA_E ANOVA', contrastOptions);
+        displayResults(SPM_ANOVA_OLA{2}, 'OLA_R ANOVA', contrastOptions);
     end
-    if useContrastMask
-        contrastOptions.applyContrastAsMask = find(strcmp( ...
-            {SPM_OLA_E.SPM.xCon.name}, 'Main effect of CORSCE_FALSCE')==1);
-    end
-    contrastOptions.whichCon = [3, 4, 11:17];
-    displayResults(SPM_OLA_E, 'OLA_E fullfactorial', contrastOptions);
-    if useContrastMask
-        contrastOptions.applyContrastAsMask = find(strcmp( ...
-            {SPM_OLA_R.SPM.xCon.name}, 'Main effect of CORSCR_FALSCR')==1);
-    end
-    contrastOptions.whichCon = [3, 4, 11:17, 19];
-    displayResults(SPM_OLA_R, 'OLA_R fullfactorial', contrastOptions);
-    if useContrastMask
-        contrastOptions.applyContrastAsMask = find(strcmp( ...
-            {SPM_ANOVA_OLA{1}.SPM.xCon.name}, 'group difference')==1);
-    end
-    contrastOptions.whichCon = Inf;
-    displayResults(SPM_ANOVA_OLA{1}, 'OLA_E ANOVA', contrastOptions);
-    displayResults(SPM_ANOVA_OLA{2}, 'OLA_R ANOVA', contrastOptions);
-end
 end
 
 %% signal change analysis and results
