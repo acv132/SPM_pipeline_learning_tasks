@@ -1,5 +1,5 @@
 
-## UniBonnPraktikum2022
+## SPM pipeline for learning tasks
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 This repository was **initially created on 18-05-2022** for an internship in the [Section of Cognitive Psychology](https://www.psychologie.uni-bonn.de/de-en/about-us/sections/cognitive-psychology?set_language=en) at the Department of Psychology at the University of Bonn from 15-03-2022 to 15-06-2022.
@@ -49,10 +49,6 @@ When downloading the code, it is recommended to move the folder containing the d
     └───results
 ```
 The `DATA` folder should contain all additional logfiles, behavioral and subject fmri data. A `results` folder will be generated here for the fmri results by the analysis script.
-
-#### TODO
-
-- add applyhatch_plusColor function
 
 #### References
 [^1]: [Ettinger, U., Corr, P. J., Mofidi, A., Williams, S. C., & Kumari, V. (2013). Dopaminergic basis of the psychosis-prone personality investigated with functional magnetic  resonance imaging of procedural learning. Frontiers in human neuroscience, 7, 130.](https://www.frontiersin.org/articles/10.3389/fnhum.2013.00130/full)
