@@ -1,7 +1,7 @@
 # data is not uploaded here
 _DATA/
 manuscript/
-analysis_script/results/*
+analysis_script/results/
 
 # MATLAB Windows default autosave extension
 *.asv
