@@ -48,14 +48,8 @@ marsbar('on')
 % load in files of regions of interest
 [roi_files, roi_names] = getROI(beh_data_path, sequence, '*.mat');
 
-% if out_dir == "PL"
-% allROIs = dir(fullfile( ...
-%     "F:\UniBonnPraktikum2022\2022_analysis_script\data\ROIs\PL", "*roi.mat"));
-% else
-% allROIs = dir(fullfile( ...
-%     "F:\UniBonnPraktikum2022\2022_analysis_script\data\ROIs\OLA", "*roi.mat"));
-% end
 for r=1:length(roi_files)
+
     roi_name = roi_names{r};
     roi_file = roi_files{r};
 

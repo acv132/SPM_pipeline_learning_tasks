@@ -1,10 +1,9 @@
 function out = convertTextToColumnVectors(beh_sbj_path, filter)
-% convertTextToColumnVectors converts numeric strings to column vectors
+% CONVERTTEXTTOCOLUMNVECTORS Convert numeric strings to column vectors
 % for selected data; data is selected by passing filter argument
 % Example:
 %           OLA_out = convertTextToColumnVectors("./datapath", ['OLA.*final'])
-% TODO credit to PetersFile.m
-% $Author: A. Kasparbauer, A. Vorreuther
+% credit to PetersFile.m
 
 logfile = cellstr(spm_select('FPlist',fullfile(beh_sbj_path), filter));
 m = length(logfile);

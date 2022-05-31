@@ -1,9 +1,4 @@
 
-### TODO
-
-- systematic ROI analyses
-- add contents file for overview of functions
-
 ## UniBonnPraktikum2022
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
@@ -16,7 +11,7 @@ and an **Object Location Association**[^3] task.
 If you use this code or parts of it, please cite
 ***reference goes here*** 
 
-Vorreuther, A., Kasparbauer, A., & Ettinger, U. (2022). *title*. Retrieved from https://github.com/acv132/UniBonnPraktikum2022.
+Vorreuther, A., Kasparbauer, A., & Ettinger, U. (2022). *title*. Retrieved from https://github.com/acv132/SPM_pipeline_learning_tasks.
 ```
  BibTex reference here
 ```
@@ -64,3 +59,6 @@ The `DATA` folder should contain all additional logfiles, behavioral and subject
 [^2]: [Kasparbauer, A. M., Meyhöfer, I., Steffens, M., Weber, B., Aydin, M., Kumari, V., ... & Ettinger, U. (2016). Neural effects of methylphenidate and nicotine during smooth pursuit eye movements. Neuroimage, 141, 52-59.](https://www.sciencedirect.com/science/article/abs/pii/S1053811916303196)
 [^3]: [Kukolja, J., Thiel, C. M., Wilms, M., Mirzazade, S., & Fink, G. R. (2009). Ageing-related changes of neural activity associated with spatial contextual memory.     Neurobiology of aging, 30(4), 630-645.](https://www.sciencedirect.com/science/article/abs/pii/S0197458007003363)
 
+##### TODO
+
+- add applyhatch_plusColor function
