@@ -6,7 +6,7 @@ DATASET CLOSE ALL.
 * main SPSS analysis file BEHAVIORAL DATA.
 
 * ENTER YOUR WORKING DIRECTORY HERE, e.g. "C:\Users\[YourUserName]\[ThisProject]\behaviroal".
-CD "C:\Users\praktikum\Desktop\2022_analysis_script\behavioral".
+CD "F:\UniBonnPraktikum2022\analysis_script\behavioral".
 
 * imports function that checks whether .sav file already exists in \results dir.
  * DEFINE !isfile()'no' !ENDDEFINE.

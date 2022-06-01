@@ -40,5 +40,5 @@ for r=1:length(roi_files)
     tc_table.(roi_name) = summary_data(Y);
 
 end
-output_filename ="timecourses_"+string(titlename)+".txt";
+output_filename ="timecourses_"+string(titlename)+".csv";
 writetable(tc_table,fullfile(output_dir, output_filename),'Delimiter',';')
