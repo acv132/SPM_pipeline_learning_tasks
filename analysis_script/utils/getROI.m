@@ -17,7 +17,7 @@ arguments
     ext {mustBeText}
 end
 roi_default_path = fullfile(fileparts(fileparts(beh_data_path)), ...
-    "2022_analysis_script\data\ROIs");
+    "analysis_script\data\ROIs");
 [roi_filename, roi_path] = uigetfile(ext,"Select ROI file(s) for " ...
     + string(title), roi_default_path, 'Multiselect', 'on');
 [~, roi_names] = fileparts(roi_filename);

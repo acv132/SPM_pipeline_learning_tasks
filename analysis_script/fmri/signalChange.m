@@ -92,7 +92,7 @@ for r=1:length(roi_files)
             E = set_contrasts(E, xCon);
             % get design betas
             b = betas(E);
-
+            
             for e = 1:numel(conds)
                 % regressor: Successful Stop (1) or Unsuccessful Stop (2)
                 % or Continue Trial (3):');
@@ -143,6 +143,35 @@ for r=1:length(roi_files)
         mean_MPH = mean(MPH); sem_MPH = std(MPH)/sqrt(length(MPH));
         mean_NIC = mean(NIC); sem_NIC = std(NIC)/sqrt(length(NIC));
         mean_PLC = mean(PLC); sem_PLC = std(PLC)/sqrt(length(PLC));
+
+        % t-test
+        sig_differences = cell(numel(conds)*length(labl)*(length(labl)-1),7);  
+        c = 1; % counter var
+        for cond=1:numel(conds)
+            labl = {'MPH', 'NIC', 'PLC'};
+            tdata = {MPH(:,cond), NIC(:,cond), PLC(:,cond)};
+            for m=1:3
+                x = tdata{m};
+                for m2=1:3
+                    y = tdata{m2};
+                    if ~strcmp(labl{m}, labl{m2})
+                        [h,p,ci,stats] = ttest2(x,y);
+                        sig_differences(c,:) = {string(conds(cond)), ...
+                            labl{m}, labl{m2}, h,p,ci,stats};
+                        if h == 1
+                            disp("SIG. DIFFERENCE FOUND\n"); 
+                            disp(sig_differences(c,[1:3,5]));
+                        end
+                        c = c + 1;
+                    end
+                end
+            end
+        end
+        header = ['trial type', 'substance1', 'substance2', ...
+            "hypothesis rejected at .05", "p-value", "CI", "stats"];
+        T = cell2table(sig_differences, 'VariableNames',header);
+        output_filename ="ttests_"+string(roi_name)+".txt";
+        writetable(T,fullfile(output_dir, output_filename))
 
         y = [mean_MPH mean_NIC mean_PLC; sem_MPH sem_NIC sem_PLC];
 

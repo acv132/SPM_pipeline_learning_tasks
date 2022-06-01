@@ -22,12 +22,13 @@ do_preprocess = false;
 do_PL_analysis = false; % to run 1st-level, fullfactorial, and ANOVA
 show_PL_Results = false; % to save images of results; CAUTION: takes a while too
 do_PL_signalChangeROI = false; % to run signal change analysis with marsbar
+do_PL_extractTC = true; % to extract time courses of ROIs for PL task
 
 do_OLA_analysis = false;
 show_OLA_Results = false;
 do_OLA_E_signalChangeROI = false;
 do_OLA_R_signalChangeROI = false;
-
+do_OLA_extractTC = true;
 
 % options for how and which contrasts are displayed in displayResults
 % function; if an option is not defined, a default is used in the method
@@ -63,11 +64,11 @@ contrastOptions.maskThreshold = 0.0500; % threshold for mask
 contrastOptions.export = {'png'};
 contrastOptions.deletePrevious = false; % whether to delete old exports
 
-% necessary to display results
-if show_PL_Results
+% necessary to display results and extract time courses
+if show_PL_Results || do_PL_extractTC
     do_PL_analysis = true;
 end
-if show_OLA_Results
+if show_OLA_Results || do_OLA_extractTC
     do_OLA_analysis = true;
 end
 
@@ -313,4 +314,26 @@ if do_OLA_R_signalChangeROI
         firstlevel_data_path);
     disp("SIGNAL CHANGE ANALYSIS OLA_R complete")
     toc
+end
+
+%% extract time courses
+if do_PL_extractTC
+    [roi_files, roi_names] = getROI(beh_data_path, ...
+        'Time course for PL results', '*.mat');
+    timeCourses_SPM_PL = extractTimeCourse(beh_data_path, SPM_PL.SPM, ...
+        roi_files, roi_names, "PL_ff");
+    timeCourses_SPM_ANOVA_PL = extractTimeCourse(beh_data_path, ...
+        SPM_ANOVA_PL.SPM, roi_files, roi_names, "PL_ANOVA");
+end
+if do_OLA_extractTC
+    [roi_files, roi_names] = getROI(beh_data_path, ...
+        'Time course for OLA results', '*.mat');
+    timeCourses_SPM_OLA_E = extractTimeCourse(beh_data_path, ...
+        SPM_OLA_E.SPM, roi_files, roi_names, "OLA_E_ff");
+    timeCourses_SPM_ANOVA_OLA_E = extractTimeCourse(beh_data_path, ...
+        SPM_ANOVA_OLA{1}.SPM, roi_files, roi_names, "OLA_E_ANOVA");
+    timeCourses_SPM_OLA_R = extractTimeCourse(beh_data_path, ...
+        SPM_OLA_R.SPM, roi_files, roi_names, "OLA_R_ff");
+    timeCourses_SPM_ANOVA_OLA_R = extractTimeCourse(beh_data_path, ...
+        SPM_ANOVA_OLA{2}.SPM, roi_files, roi_names, "OLA_R_ANOVA");
 end
