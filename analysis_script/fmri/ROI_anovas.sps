@@ -1,7 +1,7 @@
 ﻿
 CD "F:\UniBonnPraktikum2022\analysis_script\fmri\timecourseROI".
 
-INSERT FILE="..\..\utils\getDataSetROI.sps".
+INSERT FILE="..\utils\getDataSetROI.sps".
 
 /* ROI analysis for PL.
 
@@ -28,7 +28,7 @@ putamen_aal_roi  BY substance
      /DESIGN=substance.
 EXECUTE.
 
-OUTPUT SAVE OUTFILE  = "..\..\..\_DATA\results\timeCourses\timecourses_PL_ff.spv".
+OUTPUT SAVE OUTFILE  = "..\..\_DATA\results\timeCourses\timecourses_PL_ff.spv".
 
 DATASET ACTIVATE timecourses_PL_ANOVA.
 EXECUTE.
@@ -53,7 +53,7 @@ putamen_aal_roi  BY substance
      /DESIGN=substance.
 EXECUTE.
 
-OUTPUT SAVE OUTFILE  = "..\..\..\_DATA\results\timeCourses\timecourses_PL_ANOVA.spv".
+OUTPUT SAVE OUTFILE  = "..\..\_DATA\results\timeCourses\timecourses_PL_ANOVA.spv".
 
 /* ROI analysis for OLA E.
 
@@ -76,7 +76,7 @@ parahippocampus_aal_roi BY substance
      /DESIGN=substance.
 EXECUTE.
 
-OUTPUT SAVE OUTFILE  = "..\..\..\_DATA\results\timeCourses\timecourses_OLA_E_ff.spv".
+OUTPUT SAVE OUTFILE  = "..\..\_DATA\results\timeCourses\timecourses_OLA_E_ff.spv".
 
 DATASET ACTIVATE timecourses_OLA_E_ANOVA.
 EXECUTE.
@@ -97,7 +97,7 @@ parahippocampus_aal_roi BY substance
      /DESIGN=substance.
 EXECUTE.
 
-OUTPUT SAVE OUTFILE  = "..\..\..\_DATA\results\timeCourses\timecourses_OLA_E_ANOVA.spv".
+OUTPUT SAVE OUTFILE  = "..\..\_DATA\results\timeCourses\timecourses_OLA_E_ANOVA.spv".
 
 /* ROI analysis for OLA R.
 
@@ -120,7 +120,7 @@ parahippocampus_aal_roi BY substance
      /DESIGN=substance.
 EXECUTE.
 
-OUTPUT SAVE OUTFILE  = "..\..\..\_DATA\results\timeCourses\timecourses_OLA_R_ff.spv".
+OUTPUT SAVE OUTFILE  = "..\..\_DATA\results\timeCourses\timecourses_OLA_R_ff.spv".
 
 DATASET ACTIVATE timecourses_OLA_R_ANOVA.
 EXECUTE.
@@ -141,5 +141,5 @@ parahippocampus_aal_roi BY substance
      /DESIGN=substance.
 EXECUTE.
 
-OUTPUT SAVE OUTFILE  = "..\..\..\_DATA\results\timeCourses\timecourses_OLA_R_ANOVA.spv".
+OUTPUT SAVE OUTFILE  = "..\..\_DATA\results\timeCourses\timecourses_OLA_R_ANOVA.spv".
 
