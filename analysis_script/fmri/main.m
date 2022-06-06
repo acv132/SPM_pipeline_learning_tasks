@@ -19,16 +19,16 @@ subjects = list_vp_names(beh_data_path);
 
 do_preprocess = false;
 
-do_PL_analysis = false; % to run 1st-level, fullfactorial, and ANOVA
+do_PL_analysis = true; % to run 1st-level, fullfactorial, and ANOVA
 show_PL_Results = false; % to save images of results; CAUTION: takes a while too
 do_PL_signalChangeROI = false; % to run signal change analysis with marsbar
-do_PL_extractTC = true; % to extract time courses of ROIs for PL task
+do_PL_extractTC = false; % to extract time courses of ROIs for PL task
 
-do_OLA_analysis = false;
+do_OLA_analysis = true;
 show_OLA_Results = false;
 do_OLA_E_signalChangeROI = false;
 do_OLA_R_signalChangeROI = false;
-do_OLA_extractTC = true;
+do_OLA_extractTC = false;
 
 % options for how and which contrasts are displayed in displayResults
 % function; if an option is not defined, a default is used in the method
