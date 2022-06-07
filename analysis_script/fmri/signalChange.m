@@ -1,6 +1,6 @@
 function signalchange = signalChange(subjects, sequence, conds, ...
     beh_data_path, firstlevel_data_path)
-% SIGNALCHANGE Analyse the percentage of signal change during all tasks
+% SIGNALCHANGE Analyse the percentage of signal change during a task
 % by means of the marsbar toolbox; prompts the user to select at least one
 % ROI file from a folder;
 % signalchange = SIGNALCHANGE(subjects,beh_data_path, ...
@@ -75,11 +75,6 @@ for r=1:length(roi_files)
 
             % define spm and roi
             D = mardo(SPM);
-            % if the folder directory is changed, this needs to happen for the
-            % code to run
-            %         D = cd_images(D, fullfile(fileparts(beh_data_path), "Subjects", ...
-            %             subject_name, sequence));
-            %         save_spm(D);
             R = maroi(roi_file);
             dur = 0;
             % fetch data into marsbar data object
@@ -129,8 +124,8 @@ for r=1:length(roi_files)
     try
         header = ['LBID', 'substance', string(conds)];
         T = cell2table(signalchange, 'VariableNames',header);
-        output_filename ="signalchange_"+string(roi_name)+".txt";
-        writetable(T,fullfile(output_dir, output_filename))
+        output_filename ="signalchange_"+string(roi_name)+".csv";
+        writetable(T,fullfile(output_dir, output_filename),'Delimiter',';')
 
         %% plot signal change
         MPH = cell2mat(signalchange(strcmp(signalchange(:,2),'MPH'), ...
@@ -145,10 +140,10 @@ for r=1:length(roi_files)
         mean_PLC = mean(PLC); sem_PLC = std(PLC)/sqrt(length(PLC));
 
         % t-test
+        labl = {'MPH', 'NIC', 'PLC'};
         sig_differences = cell(numel(conds)*length(labl)*(length(labl)-1),7);  
         c = 1; % counter var
         for cond=1:numel(conds)
-            labl = {'MPH', 'NIC', 'PLC'};
             tdata = {MPH(:,cond), NIC(:,cond), PLC(:,cond)};
             for m=1:3
                 x = tdata{m};
@@ -170,8 +165,9 @@ for r=1:length(roi_files)
         header = ['trial type', 'substance1', 'substance2', ...
             "hypothesis rejected at .05", "p-value", "CI", "stats"];
         T = cell2table(sig_differences, 'VariableNames',header);
-        output_filename ="ttests_"+string(roi_name)+".txt";
-        writetable(T,fullfile(output_dir, output_filename))
+        output_filename ="ttests_"+string(roi_name)+".csv";
+        writetable(T,fullfile(output_dir, output_filename), ...
+            "Delimiter", ";");
 
         y = [mean_MPH mean_NIC mean_PLC; sem_MPH sem_NIC sem_PLC];
 
