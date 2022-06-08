@@ -21,13 +21,13 @@ do_preprocess = false;
 
 do_PL_analysis = false; % to run 1st-level, fullfactorial, and ANOVA
 show_PL_Results = false; % to save images of results; CAUTION: takes a while too
-do_PL_signalChangeROI = true; % to run signal change analysis with marsbar
+do_PL_signalChangeROI = false; % to run signal change analysis with marsbar
 do_PL_extractTC = false; % to extract time courses of ROIs for PL task
 
 do_OLA_analysis = false;
 show_OLA_Results = false;
-do_OLA_E_signalChangeROI = true;
-do_OLA_R_signalChangeROI = true;
+do_OLA_E_signalChangeROI = false;
+do_OLA_R_signalChangeROI = false;
 do_OLA_extractTC = false;
 
 % options for how and which contrasts are displayed in displayResults
@@ -52,7 +52,7 @@ useContrastMask = false;
 
 % if set to true, you can additionally define an image ('*.nii') as mask
 % to apply to results of PL and OLA task, respectively;
-useImageMask = true;
+useImageMask = false;
 
 % maskType: whether the mask should be inclusive (0) or exclusive (1)
 contrastOptions.maskType = 0;
