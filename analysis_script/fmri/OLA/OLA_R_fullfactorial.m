@@ -28,7 +28,7 @@ batch_name = 'fullfactorial.mat';
 problem_log = {};
 SPM = [];
 
-con_nr = {'con_0001','con_0002'}; % CORSCE & FALSCE
+con_nr = {'con_0001','con_0002'}; % CORSCR & FALSCR
 cd(firstlevel_data_path);
 output_dir = "..\..\OLA_fullfactorial_SpatialAccuracy\OLA_R\";
 mkdir(output_dir);

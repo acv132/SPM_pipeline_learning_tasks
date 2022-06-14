@@ -1,5 +1,5 @@
 ﻿
-CD "F:\UniBonnPraktikum2022\analysis_script\fmri\timecourseROI".
+CD "F:\UniBonnPraktikum2022\analysis_script\fmri".
 
 INSERT FILE="..\utils\getDataSetROI.sps".
 
@@ -13,12 +13,14 @@ UNIANOVA
 anterior_cingulate_aal_roi
 caudate_td_roi
 cingulate_roi
+fusiform_aal_roi
+hippocampus_aal_roi
 IFG_td_roi
 insula_td_roi
 middleFG_td_roi
 middleTG_td_roi
-nacc_ibaspm71_roi
-putamen_aal_roi  BY substance
+parahippocampus_aal_roi
+putamen_aal_roi BY substance
      /METHOD=SSTYPE(3)
      /INTERCEPT=INCLUDE
      /POSTHOC=substance(LSD BONFERRONI) 
@@ -38,12 +40,14 @@ UNIANOVA
 anterior_cingulate_aal_roi
 caudate_td_roi
 cingulate_roi
+fusiform_aal_roi
+hippocampus_aal_roi
 IFG_td_roi
 insula_td_roi
 middleFG_td_roi
 middleTG_td_roi
-nacc_ibaspm71_roi
-putamen_aal_roi  BY substance
+parahippocampus_aal_roi
+putamen_aal_roi BY substance
      /METHOD=SSTYPE(3)
      /INTERCEPT=INCLUDE
      /POSTHOC=substance(LSD BONFERRONI) 
@@ -61,12 +65,18 @@ DATASET ACTIVATE timecourses_OLA_E_ff.
 EXECUTE.
 OUTPUT NEW.
 
- UNIANOVA
+UNIANOVA 
+anterior_cingulate_aal_roi
+caudate_td_roi
+cingulate_roi
 fusiform_aal_roi
 hippocampus_aal_roi
+IFG_td_roi
 insula_td_roi
 middleFG_td_roi
-parahippocampus_aal_roi BY substance
+middleTG_td_roi
+parahippocampus_aal_roi
+putamen_aal_roi BY substance
      /METHOD=SSTYPE(3)
      /INTERCEPT=INCLUDE
      /POSTHOC=substance(LSD BONFERRONI) 
@@ -82,12 +92,18 @@ DATASET ACTIVATE timecourses_OLA_E_ANOVA.
 EXECUTE.
 OUTPUT NEW.
 
-UNIANOVA
+UNIANOVA 
+anterior_cingulate_aal_roi
+caudate_td_roi
+cingulate_roi
 fusiform_aal_roi
 hippocampus_aal_roi
+IFG_td_roi
 insula_td_roi
 middleFG_td_roi
-parahippocampus_aal_roi BY substance
+middleTG_td_roi
+parahippocampus_aal_roi
+putamen_aal_roi BY substance
      /METHOD=SSTYPE(3)
      /INTERCEPT=INCLUDE
      /POSTHOC=substance(LSD BONFERRONI) 
@@ -105,12 +121,18 @@ DATASET ACTIVATE timecourses_OLA_R_ff.
 EXECUTE.
 OUTPUT NEW.
 
-UNIANOVA
+UNIANOVA 
+anterior_cingulate_aal_roi
+caudate_td_roi
+cingulate_roi
 fusiform_aal_roi
 hippocampus_aal_roi
+IFG_td_roi
 insula_td_roi
 middleFG_td_roi
-parahippocampus_aal_roi BY substance
+middleTG_td_roi
+parahippocampus_aal_roi
+putamen_aal_roi BY substance
      /METHOD=SSTYPE(3)
      /INTERCEPT=INCLUDE
      /POSTHOC=substance(LSD BONFERRONI) 
@@ -126,12 +148,18 @@ DATASET ACTIVATE timecourses_OLA_R_ANOVA.
 EXECUTE.
 OUTPUT NEW.
 
-UNIANOVA
+UNIANOVA 
+anterior_cingulate_aal_roi
+caudate_td_roi
+cingulate_roi
 fusiform_aal_roi
 hippocampus_aal_roi
+IFG_td_roi
 insula_td_roi
 middleFG_td_roi
-parahippocampus_aal_roi BY substance
+middleTG_td_roi
+parahippocampus_aal_roi
+putamen_aal_roi BY substance
      /METHOD=SSTYPE(3)
      /INTERCEPT=INCLUDE
      /POSTHOC=substance(LSD BONFERRONI) 

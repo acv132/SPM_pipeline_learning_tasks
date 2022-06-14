@@ -40,5 +40,17 @@ for r=1:length(roi_files)
     tc_table.(roi_name) = summary_data(Y);
 
 end
+% if table contains more than one contrast per subject (OLA_ff), the values
+% per ROI are averaged
+if size(tc_table,1) > length(unique(tc_table.LBID))
+    for s=1:length(unique(tc_table.LBID))
+        subject_idxs = find(string(tc_table.LBID) == string(tc_table.LBID(s)));
+        tc_table(subject_idxs(1),3:end) = num2cell( ...
+            mean(table2array(tc_table(subject_idxs,3:end)),1));
+
+        tc_table(subject_idxs(2),:) = [];
+    end
+end
+
 output_filename ="timecourses_"+string(titlename)+".csv";
 writetable(tc_table,fullfile(output_dir, output_filename),'Delimiter',';')
