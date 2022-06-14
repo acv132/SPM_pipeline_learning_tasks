@@ -1,4 +1,6 @@
 ﻿
+/* runs ANOVAs of time courses extracted with Matlab main file (-> only run AFTER running Matlab extractTimeCourse.m file via main.m file)
+
 CD "F:\UniBonnPraktikum2022\analysis_script\fmri".
 
 INSERT FILE="..\utils\getDataSetROI.sps".
